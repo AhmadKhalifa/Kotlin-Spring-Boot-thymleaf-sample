@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello world</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+</head>
+<body>
+<div class="container mb-5">
+    <h3>Customers directory</h3>
+    <br>
+    <a th:href="@{/customers/newCustomer}" class="btn badge-primary btn-sm mb-3">Add customer</a>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="customer: ${customers}">
+            <td th:text="${customer.firstName}" ></td>
+            <td th:text="${customer.lastName}" ></td>
+            <td th:text="${customer.email}" ></td>
+            <a th:href="@{/customers/deleteCustomer/${customer.id}}" class="btn btn-sm mb-3">Delete</a>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

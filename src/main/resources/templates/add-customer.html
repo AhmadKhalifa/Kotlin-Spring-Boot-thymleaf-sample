@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello world</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+</head>
+<body>
+<div class="container">
+    <h3>Save customer</h3>
+    <br>
+<form action="#" th:action="@{/customers/createCustomer}" th:object="${customer}" method="POST">
+    <input type="text" class="form-control mb-4 col-4" th:field="*{firstName}" placeholder="First name">
+    <input type="text" class="form-control mb-4 col-4" th:field="*{lastName}" placeholder="Last name">
+    <input type="text" class="form-control mb-4 col-4" th:field="*{email}" placeholder="Email">
+    <button type="submit" class="btn btn-info col-2">Save</button>
+</form>
+</div>
+</body>
+</html>
